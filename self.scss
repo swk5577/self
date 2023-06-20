@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700&family=Playfair:wght@300&display=swap');
+
+
+@import "_reset"; 
+@import "_mixin";
+@import "_media";
+@import "_reset";
+// 로 호출 css에서만 사용하는 문서는 앞에 _를 넣어 컴파일이 안되도록 한다
+//$ic:(,,) 배열로 이미지, 숫자, 등을 입력
+//url('./img/#{nth(ic,2)}.png')  여기서 #은 함수와 글자를 이어줌 
+$max:1470px;
+
+// @extend .클레스이름 / 같은 명령어를 넣는 클래스가 있을때 호출할수잇다
+
+
+*{font-family:'Inter', sans-serif;}
+
+
+header{padding: 20px;
+    background-color: white;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+    position: relative;
+    nav{
+        @include flex();
+        @include set();
+        margin-bottom: 0;
+        align-items: center;
+        a{
+            font-weight: bold;
+            font-size: 20px;
+            color: black;
+        }
+    }
+}
+
+
+
+
+main{
+>div:nth-of-type(1){
+    width: 100%;
+    background-image: url(./img/Rectangle9.png);
+    @include bckc();
+    @include flex(center,);
+    height: 350px;
+
+    p{
+        font-size: 70px;
+        font-weight: 400;
+        text-align: center;
+        font-style: italic;
+        color: white;
+    }
+}
+
+
+>div:nth-of-type(2){
+    @include set();
+    article{width: 100%;
+            text-align: center;
+            margin: 10% 0;
+        h2{font-size: 30px;
+            &::after{
+                content: '';
+                margin: 20px auto;
+                display: block;
+                width: 100px;
+                height: 2px;
+                background-color: #6E6E6E;
+            }
+        }
+
+        >p{font-size: 15px;
+        font-weight: 400;}
+        div{
+            margin-top: 6%;
+            @include flex();
+            figure{
+                a{
+                    img{width: 100%;
+                    margin-bottom: 20px;}
+                    p{}
+                }
+            }
+            }
+    }
+}
+
+
+>div:nth-of-type(3){
+    background-image: url(./img/img-sec02.png);
+    @include bckc();
+    height: 790px;
+    display: flex;
+    align-items: center;
+    article{
+        max-width: 780px;
+        margin-left: 48%;
+
+        h2{font-size: 35px;
+            span{
+                color: #D91226;
+            }
+        }
+        p{white-space: pre-line;
+        font-size: 20px;}
+
+        div{
+            margin-top: 40px;
+            @include flex();
+            text-align: center;
+            figure{max-width: 250px;
+
+                $ic : (1:ic-1,2:ic-2,3:ic-3);
+                @each $num,$icon in $ic{
+                    //ic의 값을 받기위해 만들어진 명령어 (앞2개 순서 중요)
+                    // 반복 되는 이미지 등을 1줄로 반복 해주는 명령어
+                    &:nth-of-type(#{$num}) div{
+                        background: #fff url('./img/#{$icon}.png');
+                        @include bckc
+                    }
+                }
+
+                div{width: 10vw; height: 10vw;
+                    min-width: 100px; min-height: 100px;
+                    background-color: white;
+                    border: 5px solid gray;
+                    border-radius: 50%;
+                    margin: 20px auto 0;
+                    box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+                    }
+                    figcaption{
+                    b{font-size: 20px;}
+                        >p{font-size: 18px;
+                        color: #6E6E6E;}
+                    }
+                }
+            }
+    }
+
+}
+}

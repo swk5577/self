@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/* map파일이 추가로 생기는데 css와 scss를 연결해줌 */
+/* 변수선언시 $를 붙임 위처럼 지정해놓으면 중복되는 수치값을 한번에 바꾸기 유용하다  widht:$wid; 처럼 입력*/
+/* 반복 되는 명령어 그룹을 묶어 사용 가능하다     @include 이름; 으로 호출 / ()안에 변경할 값을 넣어 바꿀수 있음 변수로 값을 지정할수도 있고 자체 반복 이라면 값을 입력해둬도 좋다*/
+header {
+  padding: 20px 0;
+  width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 {
+  font-size: 2rem;
+}
+header nav a {
+  padding: 0 20px;
+  color: red;
+}
+
+main {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.spot figure {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* 추가 해야할 명령어가 있을경우 {}안에 넣는다 */
+  flex-wrap: wrap;
+}
+.spot figure img {
+  width: 30%;
+}/*# sourceMappingURL=nesting.css.map */

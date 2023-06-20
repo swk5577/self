@@ -1,0 +1,17 @@
+$mobaile: ('max-width:480px', 'max-width:768px', 'max-width:1280px');
+// 글자, 값을 묶을때 ''나 "" 필요
+
+@mixin device($md){
+    @media ($md){
+        @content;
+    }
+}
+// 순서중요
+@include device(nth($mobaile,2)){
+    body{background-color: yellow;}
+}
+
+@include device(nth($mobaile,1)){
+    body{background-color: red;}
+}
+

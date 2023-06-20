@@ -1,0 +1,15 @@
+@mixin set(){
+    max-width: $max;
+    margin: auto;
+}
+
+@mixin flex($j:space-between,$a:center){
+    display: flex;
+    justify-content: $j;
+    align-items: $a;
+}
+
+@mixin bckc(){
+    background-repeat: no-repeat;
+    background-position: center;
+}

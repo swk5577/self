@@ -1,0 +1,44 @@
+/* map파일이 추가로 생기는데 css와 scss를 연결해줌 */
+
+$wid:800px;
+/* 변수선언시 $를 붙임 위처럼 지정해놓으면 중복되는 수치값을 한번에 바꾸기 유용하다  widht:$wid; 처럼 입력*/
+
+@mixin flex-c($x,$y){
+    display: flex;
+    justify-content: $x;
+    align-items: $y;
+    @content;
+    // 명령어를 받는경우가 생길경우 content로 들어가도록 함 이 명령어가 없을시 css에 추가되지 않음
+}
+/* 반복 되는 명령어 그룹을 묶어 사용 가능하다     @include 이름; 으로 호출 / ()안에 변경할 값을 넣어 바꿀수 있음 변수로 값을 지정할수도 있고 자체 반복 이라면 값을 입력해둬도 좋다*/
+
+// ()안의 값을 ($x:center,$y:fles-start) 로 정의 해둘경우 기본값으로 입력되고, 아래에서 수치를 바꾸면 그수치로 대체해서 들어간다
+
+header{
+    padding: 20px 0;
+    width: $wid;
+    margin: 0 auto;
+
+    @include flex-c(space-between,center);
+    // 변수에 값을 넣을시 변수로 값을 받아야 함
+
+    h1{font-size: 2rem;}
+    nav{
+        a{padding: 0 20px; color: red;}
+    }
+}
+
+
+main{
+    width: 1000px; margin: 0 auto;
+}
+
+.spot{
+    figure{
+        margin: 0;
+        @include flex-c(space-between,center){};
+        /* 추가 해야할 명령어가 있을경우 {}안에 넣는다 */
+        flex-wrap: wrap;
+        img{width: 30%;}
+    }
+}
